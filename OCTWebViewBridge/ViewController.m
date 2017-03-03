@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "OCTWebViewBridge.h"
+#import <WebKit/WebKit.h>
+#import "OCTLogPlugin.h"
+#import "OCTAlertPlugin.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) WKWebView *webView;
 
 @end
 
@@ -16,14 +22,56 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.view addSubview:self.webView];
+    [self.webView loadHTMLString:[self html] baseURL:nil];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)injectCSS:(id)sender {
+    
+    [[OCTWebViewPluginInjector injectorForWebView:_webView] injectCSSString:@"body {background-color: black;}" forIdentifier:@"test"];
 }
+- (IBAction)removeCSS:(id)sender {
+    
+    [[OCTWebViewPluginInjector injectorForWebView:_webView] removeCSSStringForIdentifier:@"test"];
+}
+
+
+- (WKWebView *)webView {
+    
+    if (!_webView) {
+        
+        WKUserContentController *userController = [[WKUserContentController alloc] init];
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.userContentController = userController;
+        configuration.allowsInlineMediaPlayback = YES;
+        CGRect frame = [UIScreen mainScreen].bounds;
+        frame.origin.y = 30;
+        frame.size.height = 400;
+        _webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
+        
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:[[OCTLogPlugin alloc] init]];
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:[[OCTAlertPlugin alloc] init]];
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginFunctionName:@"test" handler:^(NSDictionary *data) {
+            
+            NSLog(@"%@", data);
+        }];
+        
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginFunctionName:@"test2" handlerWithResponseBlock:^(NSDictionary *data, OCTResponseCallback responseCallback) {
+            NSLog(@"test2: %@", data);
+            responseCallback(@{ @"hello" : @"world" });
+        }];
+    }
+    return _webView;
+}
+
+- (NSString *)html {
+    
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"demo" ofType:@"html"];
+    return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+}
+
 
 
 @end
+

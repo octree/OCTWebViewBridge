@@ -1,0 +1,37 @@
+<html>
+    <header>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>hello world</title>
+    </header>
+    <script type="text/javascript">
+        function tapped() {
+            window.bridge.log("yoooooooo man")
+        }
+    
+        function showAlert() {
+            
+            window.bridge.alert("哈哈哈 😀", function(hello) {
+                                    window.bridge.log("hello native, i received callback message")
+                                });
+        }
+        
+        function test() {
+        
+            window.bridge.plugin.test({'hello': 'world'})
+        }
+        
+        function test2() {
+            
+            window.bridge.plugin.test2({'hello': 'world'}, function(json) {
+                                            window.bridge.log(JSON.stringify(json))
+                                      })
+        }
+    
+    </script>
+    <a href="javascript:tapped();">tap me</a>
+    <a href="javascript:showAlert();">show alert</a>
+    <a href="javascript:test();">invoke block</a>
+    <br/>
+    <a href="javascript:test2();">invoke block with callback</a>
+</html>
