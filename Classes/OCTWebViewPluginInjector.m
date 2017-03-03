@@ -100,17 +100,19 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
     NSParameterAssert(plugin.javascriptCode != nil);
     
     self.pluginMap[plugin.identifier] = plugin;
-    [self injectJavascriptCode:plugin.javascriptCode];
+    [self injectJavascriptCode:plugin.javascriptCode
+                 injectionTime:[self userScriptInjectionTimeForPlugin:plugin]
+              forMainFrameOnly:NO];
 }
 
-- (void)injectPluginFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block {
+- (void)injectPluginWithFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block {
 
     OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionName:functionName handler:block];
     [self injectPlugin:plugin];
 }
 
 
-- (void)injectPluginFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+- (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
 
     OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionName:functionName handlerWithResponseBlock:block];
     [self injectPlugin:plugin];
@@ -136,7 +138,6 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
     [self.cssInjector injectCSSString:cssString forIdentifier:identifier];
 }
 
-
 - (void)removeCSSStringForIdentifier:(NSString *)identifier {
 
     [self.cssInjector removeCSSStringForIdentifier:identifier];
@@ -151,19 +152,31 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
     [self injectCorePlugin];
     for (id<OCTWebViewPlugin> plugin in self.pluginMap.allValues) {
         
-        [self injectJavascriptCode:plugin.javascriptCode];
+        [self injectJavascriptCode:plugin.javascriptCode
+                     injectionTime:[self userScriptInjectionTimeForPlugin:plugin]
+                  forMainFrameOnly:NO];
     }
+}
+
+- (WKUserScriptInjectionTime)userScriptInjectionTimeForPlugin:(id<OCTWebViewPlugin>)plugin {
+
+    if ([plugin respondsToSelector:@selector(injectionTime)]) {
+        
+        return (WKUserScriptInjectionTime)plugin.injectionTime;
+    }
+    
+    return WKUserScriptInjectionTimeAtDocumentEnd;
 }
 
 - (void)injectCorePlugin {
 
-    [self injectJavascriptCode:self.messageJavascriptCode];
+    [self injectJavascriptCode:self.messageJavascriptCode injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
     [self injectPlugin:self.cssInjector];
 }
 
-- (void)injectJavascriptCode:(NSString *)jscode {
+- (void)injectJavascriptCode:(NSString *)jscode injectionTime:(WKUserScriptInjectionTime)time forMainFrameOnly:(BOOL)flag {
     
-    WKUserScript *script = [[WKUserScript alloc] initWithSource:jscode injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:NO];
+    WKUserScript *script = [[WKUserScript alloc] initWithSource:jscode injectionTime:time forMainFrameOnly:flag];
     [self.webView.configuration.userContentController addUserScript:script];
 }
 
@@ -212,13 +225,13 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
     //   参考 type encoding
     if (![lastObjType isEqualToString:@"@?"] && callbackId > 0) {
         
-        NSLog(@"class: %@, selector: %@, js callback，but this fucking selector does not support", NSStringFromClass([obj class]), selector);
+        NSLog(@"JS Invoke - class: %@, selector: %@, js need callback，but this fucking selector does not support", NSStringFromClass([obj class]), selector);
         return;
     }
     
     if (jsArgsCount != selectorArgsCount) {
         
-        NSLog(@"class: %@, selector: %@, js callback，args count not match", NSStringFromClass([obj class]), selector);
+        NSLog(@"JS Invoke - class: %@, selector: %@，args count not match", NSStringFromClass([obj class]), selector);
         return;
     }
     

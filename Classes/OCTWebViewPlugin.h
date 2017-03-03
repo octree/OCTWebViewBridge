@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, OCTWebViewPluginInjectionTime) {
+
+    OCTWebViewPluginInjectionTimeAtDocumentStart,
+    OCTWebViewPluginInjectionTimeAtDocumentEnd,
+};
+
 /**
  *  JS 函数需要 Native 处理数据后，回调传回数据
  *
@@ -20,6 +26,10 @@ typedef void (^OCTResponseCallback)(NSDictionary *params);
  */
 
 @protocol OCTWebViewPlugin <NSObject>
+
+@optional
+
+@property (nonatomic, readonly) OCTWebViewPluginInjectionTime injectionTime;
 
 @required
 /**

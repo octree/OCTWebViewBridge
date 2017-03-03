@@ -12,8 +12,7 @@
 @class WKWebView;
 @interface OCTCSSInjectionPlugin : NSObject <OCTWebViewPlugin>
 
-
-
+@property (nonatomic, readonly) OCTWebViewPluginInjectionTime injectionTime;
 @property (copy, nonatomic, readonly) NSString *identifier;
 @property (copy, nonatomic, readonly) NSString *javascriptCode;
 

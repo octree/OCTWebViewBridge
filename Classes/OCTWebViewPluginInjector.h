@@ -30,7 +30,7 @@
  *  @param functionName js function name
  *  @param block        handler
  */
-- (void)injectPluginFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block;
+- (void)injectPluginWithFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block;
 
 
 /**
@@ -41,7 +41,7 @@
  *  @param functionName js function name
  *  @param block        handler
  */
-- (void)injectPluginFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
+- (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
 
 /**
  *  remove plugin for identifier
@@ -55,7 +55,21 @@
  */
 - (void)removeAllPlugins;
 
+
+/**
+ inject css with identifier
+
+ @param cssString css string
+ @param identifier identifier
+ */
 - (void)injectCSSString:(NSString *)cssString forIdentifier:(NSString *)identifier;
+
+
+/**
+ remove css string with identifier
+
+ @param identifier identifier
+ */
 - (void)removeCSSStringForIdentifier:(NSString *)identifier;
 
 

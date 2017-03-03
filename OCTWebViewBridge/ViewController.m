@@ -59,12 +59,12 @@
         
         [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:[[OCTLogPlugin alloc] init]];
         [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:[[OCTAlertPlugin alloc] init]];
-        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginFunctionName:@"test" handler:^(NSDictionary *data) {
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionName:@"test" handler:^(NSDictionary *data) {
             
             NSLog(@"%@", data);
         }];
         
-        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginFunctionName:@"test2" handlerWithResponseBlock:^(NSDictionary *data, OCTResponseCallback responseCallback) {
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionName:@"test2" handlerWithResponseBlock:^(NSDictionary *data, OCTResponseCallback responseCallback) {
             NSLog(@"test2: %@", data);
             responseCallback(@{ @"hello" : @"world" });
         }];

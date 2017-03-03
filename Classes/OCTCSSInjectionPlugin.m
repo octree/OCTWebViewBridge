@@ -82,4 +82,8 @@
     return _cssMap;
 }
 
+- (OCTWebViewPluginInjectionTime)injectionTime {
+
+    return OCTWebViewPluginInjectionTimeAtDocumentStart;
+}
 @end
