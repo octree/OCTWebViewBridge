@@ -2,11 +2,9 @@ if (!window.bridge.plugin) {
     window.bridge.plugin = {}
 }
 
-
 window.bridge.plugin.cssInjector =  {
 
     inject: function(json) {
-        
         Object.keys(json).forEach(function(identifier) {
 
             var style = document.getElementById(identifier)
@@ -25,11 +23,10 @@ window.bridge.plugin.cssInjector =  {
             style.parentNode.removeChild(style)
         }
     },
-    fecthCSSJSON: function (callback) {
+    fetchCSSJSON: function (callback) {
     
         window.bridge.invoke("me.octree.plugin.cssInjector", "fetchCSSJSON:", callback)
     }
 }
-
 
 window.bridge.plugin.cssInjector.fetchCSSJSON(window.bridge.plugin.cssInjector.inject)

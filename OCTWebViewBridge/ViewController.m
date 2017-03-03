@@ -29,13 +29,20 @@
 
 - (IBAction)injectCSS:(id)sender {
     
-    [[OCTWebViewPluginInjector injectorForWebView:_webView] injectCSSString:@"body {background-color: black;}" forIdentifier:@"test"];
+    [[OCTWebViewPluginInjector injectorForWebView:_webView] injectCSSString:@"body {background-color: #eeeeee;}" forIdentifier:@"test"];
+    [[OCTWebViewPluginInjector injectorForWebView:_webView] injectCSSString:[self bootstrapCSSString] forIdentifier:@"link"];
+    
 }
 - (IBAction)removeCSS:(id)sender {
     
     [[OCTWebViewPluginInjector injectorForWebView:_webView] removeCSSStringForIdentifier:@"test"];
+    [[OCTWebViewPluginInjector injectorForWebView:_webView] removeCSSStringForIdentifier:@"link"];
 }
 
+- (IBAction)reloadWebView:(id)sender {
+    
+    [self.webView loadHTMLString:[self html] baseURL:nil];
+}
 
 - (WKWebView *)webView {
     
@@ -71,7 +78,11 @@
     return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
 }
 
+- (NSString *)bootstrapCSSString {
 
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"bootstrap" ofType:@"css"];
+    return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+}
 
 @end
 

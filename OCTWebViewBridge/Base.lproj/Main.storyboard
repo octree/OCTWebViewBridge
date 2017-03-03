@@ -29,8 +29,16 @@
                                     <action selector="injectCSS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keV-Os-afs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mc1-D3-Sta">
+                                <rect key="frame" x="237" y="564" width="88" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RELOAD"/>
+                                <connections>
+                                    <action selector="reloadWebView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RhF-aB-e68"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h9-cZ-bte">
-                                <rect key="frame" x="95" y="564" width="88" height="48"/>
+                                <rect key="frame" x="122" y="564" width="88" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Remove CSS"/>
                                 <connections>

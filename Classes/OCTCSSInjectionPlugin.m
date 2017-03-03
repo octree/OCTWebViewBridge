@@ -33,7 +33,10 @@
     NSParameterAssert(identifier != nil);
     identifier = [self generateCSSIdentifierWithIdentifier:identifier];
     self.cssMap[identifier] = cssString;
-    NSString *json = [NSString stringWithFormat:@"{ '%@': '%@' }", identifier, cssString];
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:@{identifier: cssString} options:0 error:NULL];
+    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
     NSString *js = [NSString stringWithFormat:@"window.bridge.plugin.cssInjector.inject(%@)", json];
     [self.webView evaluateJavaScript:js completionHandler:nil];
 }

@@ -25,6 +25,7 @@
 		C227EDFE1E6842E3008FCF92 /* block_plugin_with_callback_template.js in Resources */ = {isa = PBXBuildFile; fileRef = C227EDFD1E6842E3008FCF92 /* block_plugin_with_callback_template.js */; };
 		C227EE021E684335008FCF92 /* OCTBlockPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C227EE011E684335008FCF92 /* OCTBlockPlugin.m */; };
 		C273E1101E6932CA00737C0B /* css_injector.js in Resources */ = {isa = PBXBuildFile; fileRef = C273E10F1E6932CA00737C0B /* css_injector.js */; };
+		C273E1141E6960A600737C0B /* bootstrap.css in Resources */ = {isa = PBXBuildFile; fileRef = C273E1131E6960A600737C0B /* bootstrap.css */; };
 		C2A4201E1E6930720067FE0B /* OCTCSSInjectionPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A4201D1E6930720067FE0B /* OCTCSSInjectionPlugin.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		C227EE001E684335008FCF92 /* OCTBlockPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTBlockPlugin.h; sourceTree = "<group>"; };
 		C227EE011E684335008FCF92 /* OCTBlockPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTBlockPlugin.m; sourceTree = "<group>"; };
 		C273E10F1E6932CA00737C0B /* css_injector.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = css_injector.js; sourceTree = "<group>"; };
+		C273E1131E6960A600737C0B /* bootstrap.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.css; sourceTree = "<group>"; };
 		C2A4201C1E6930720067FE0B /* OCTCSSInjectionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTCSSInjectionPlugin.h; sourceTree = "<group>"; };
 		C2A4201D1E6930720067FE0B /* OCTCSSInjectionPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTCSSInjectionPlugin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,7 +201,7 @@
 				C227EDEF1E683B11008FCF92 /* OCTLogPlugin.m */,
 				C227EDF31E683B1D008FCF92 /* OCTAlertPlugin.h */,
 				C227EDF41E683B1D008FCF92 /* OCTAlertPlugin.m */,
-				C227EDEB1E683AC4008FCF92 /* HTML */,
+				C227EDEB1E683AC4008FCF92 /* web */,
 				C227EDEA1E683AB9008FCF92 /* JS */,
 			);
 			name = Sample;
@@ -214,12 +216,13 @@
 			name = JS;
 			sourceTree = "<group>";
 		};
-		C227EDEB1E683AC4008FCF92 /* HTML */ = {
+		C227EDEB1E683AC4008FCF92 /* web */ = {
 			isa = PBXGroup;
 			children = (
 				C227EDF21E683B1D008FCF92 /* demo.html */,
+				C273E1131E6960A600737C0B /* bootstrap.css */,
 			);
-			name = HTML;
+			name = web;
 			sourceTree = "<group>";
 		};
 		C227EDFF1E68431F008FCF92 /* Plugins */ = {
@@ -317,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C273E1141E6960A600737C0B /* bootstrap.css in Resources */,
 				C227EDED1E683B08008FCF92 /* log.js in Resources */,
 				C227EDC21E6826D1008FCF92 /* LaunchScreen.storyboard in Resources */,
 				C227EDBF1E6826D1008FCF92 /* Assets.xcassets in Resources */,
