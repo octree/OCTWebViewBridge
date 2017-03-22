@@ -1,11 +1,14 @@
 ## OCTWebViewBridge
 
+## Installation
+
+pod 'OCTWebViewBridge'
 
 ## How To Use
 
 ### Custom Plugion
 
-js file: (log.js)
+javascript file（log.js）:
 ```javascript
 window.bridge.log = function(msg) {
     
@@ -96,3 +99,4 @@ window.bridge.plugin.test2({'hello': 'world'}, function(json) {
 
 ## License
 
+OCTWebViewBridge is released under the MIT license. See LICENSE for details.
