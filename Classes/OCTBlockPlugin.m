@@ -40,9 +40,9 @@
         
         NSParameterAssert(functionName.length > 0);
         NSParameterAssert(block != nil);
+        self.handlerWithResponseBlock = block;
         _identifier = [NSString stringWithFormat:@"me.octree.plugin1.%@", functionName];
         _javascriptCode = [self loadJSCodeWithFileName:@"block_plugin_with_callback_template" functionName:functionName identifier:_identifier];
-        self.handlerWithResponseBlock = block;
     }
     
     return self;

@@ -150,6 +150,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
     WKUserContentController *controller = self.webView.configuration.userContentController;
     [controller removeAllUserScripts];
     [self injectCorePlugin];
+    
     for (id<OCTWebViewPlugin> plugin in self.pluginMap.allValues) {
         
         [self injectJavascriptCode:plugin.javascriptCode

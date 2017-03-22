@@ -36,7 +36,7 @@
 /**
  *  inject plugin
  *
- *  js : window.bridge.<functionName>(json, callbackFunction)
+ *  js : window.bridge.<functionName>(json, responeCallback)
  *
  *  @param functionName js function name
  *  @param block        handler
