@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "OCTWebViewBridge"
   s.version      = "0.0.1"
-  s.summary      = "WKWebView Javascript "
+  s.summary      = "WKWebView Javascript Bridge"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+    WKWebView Bridge, Javascript call Native Code.
                    DESC
 
   s.homepage     = "https://github.com/octree/OCTWebViewBridge"
@@ -79,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@github.com:octree/OCTWebViewBridge.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/octree/OCTWebViewBridge.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -115,7 +116,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+s.framework  = "WebKit"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
