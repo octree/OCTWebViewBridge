@@ -6,7 +6,7 @@ pod 'OCTWebViewBridge'
 
 ## How To Use
 
-### Custom Plugion
+### Custom Plugin
 
 javascript file（log.js）:
 ```javascript
