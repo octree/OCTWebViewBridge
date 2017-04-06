@@ -10,8 +10,8 @@
 #import "OCTWebViewPlugin.h"
 #import "OCTBlockPlugin.h"
 #import <WebKit/WebKit.h>
-#import <objc/runtime.h>
 #import "OCTCSSInjectionPlugin.h"
+#import <objc/runtime.h>
 
 /**
  *  WKScriptMessageHandler Name
@@ -35,14 +35,12 @@ NSString *const kOCTMessageArgsKey = @"args";
 NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 
 
-/**
- *  仅让 WebView 持有 Injector 的强引用，随 WebView 一起释放
- *  不求同年同月同日生，但求同年同月同日死。
- */
+@interface OCTWebViewInjectorCache : NSObject
 
-@interface WKWebView (OCTInjectorHolder)
-
-@property (strong, nonatomic) OCTWebViewPluginInjector *injector;
++ (instancetype)sharedInstance;
+- (instancetype)init NS_UNAVAILABLE;
+- (OCTWebViewPluginInjector *)injectorForWebView:(WKWebView *)webView;
+- (void)removeInjectorForWebView:(WKWebView *)webView;
 
 @end
 
@@ -66,18 +64,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 
 + (instancetype)injectorForWebView:(WKWebView *)webView {
 
-    if (!webView) {
-        return nil;
-    }
-    
-    OCTWebViewPluginInjector *injector = webView.injector;
-    if (!injector) {
-        
-        injector = [[OCTWebViewPluginInjector alloc] initWithWebView:webView];
-        webView.injector = injector;
-    }
-    
-    return injector;
+    return [[OCTWebViewInjectorCache sharedInstance] injectorForWebView:webView];
 }
 
 - (instancetype)initWithWebView:(WKWebView *)webView {
@@ -345,20 +332,86 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 
 @end
 
+@interface OCTWebViewInjectorCache()
 
+@property (strong, nonatomic) NSMutableDictionary *injectorMap;
 
-@implementation WKWebView (OCTInjectorHolder)
+@end
 
-static void *kOCTWebViewPluginInjectorKey = "kOCTWebViewPluginInjectorKey";
+@implementation OCTWebViewInjectorCache
 
-- (void)setInjector:(OCTWebViewPluginInjector *)injector {
-    
-    return objc_setAssociatedObject(self, kOCTWebViewPluginInjectorKey, injector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#pragma mark - Life Cycle
+
++ (instancetype)sharedInstance {
+    static OCTWebViewInjectorCache *manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[OCTWebViewInjectorCache alloc] initPrivacy];
+    });
+    return manager;
 }
 
-- (OCTWebViewPluginInjector *)injector {
+- (instancetype)initPrivacy {
     
-    return objc_getAssociatedObject(self, kOCTWebViewPluginInjectorKey);
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
+
+#pragma mark - Public Method
+
+- (OCTWebViewPluginInjector *)injectorForWebView:(WKWebView *)webView {
+    
+    if (!webView) {
+        return nil;
+    }
+    
+    NSString *key = [NSString stringWithFormat:@"%p", webView];
+    OCTWebViewPluginInjector *injector = self.injectorMap[key];
+    if (!injector) {
+        injector = [[OCTWebViewPluginInjector alloc] initWithWebView:webView];
+        self.injectorMap[key] = injector;
+    }
+    return injector;
+}
+
+
+- (void)removeInjectorForWebView:(WKWebView *)webView {
+    
+    NSString *key = [NSString stringWithFormat:@"%p", webView];
+    [self.injectorMap removeObjectForKey:key];
+}
+
+#pragma mark - Accessor
+
+- (NSMutableDictionary *)injectorMap {
+    
+    if (!_injectorMap) {
+        
+        _injectorMap = [NSMutableDictionary dictionary];
+    }
+    return _injectorMap;
+}
+
+@end
+
+
+@interface WKWebView (_OCTWebViewInjector)
+
+@end
+
+@implementation WKWebView (_OCTWebViewInjector)
+
++ (void)load {
+    
+    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")), class_getInstanceMethod(self.class, @selector(swizzled_dealloc)));
+}
+
+- (void)swizzled_dealloc {
+    
+    [[OCTWebViewInjectorCache sharedInstance] removeInjectorForWebView:self];
 }
 
 @end

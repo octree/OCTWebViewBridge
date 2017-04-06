@@ -13,7 +13,7 @@ window.bridge.callback = {
         let key = '' + id
         let callback = window.bridge.callback.cache[key]
         callback(args)
-        delete window.bridge.callback.cache[key]
+//        delete window.bridge.callback.cache[key]
     }
 }
 
