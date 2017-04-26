@@ -64,9 +64,9 @@
             NSLog(@"%@", data);
         }];
         
-        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionName:@"test2" handlerWithResponseBlock:^(NSDictionary *data, OCTResponseCallback responseCallback) {
-            NSLog(@"test2: %@", data);
-            responseCallback(@{ @"hello" : @"world" });
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionPath:@"octree.util.log" handlerWithResponseBlock:^(NSDictionary *data, OCTResponseCallback responseCallback) {
+            NSLog(@"octree: %@", data);
+            responseCallback(@{@"yooo": @"ssss"});
         }];
     }
     return _webView;

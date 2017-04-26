@@ -43,6 +43,29 @@
  */
 - (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
 
+
+
+/**
+ *  inject plugin
+ *
+ *  js : path(json, responeCallback) eg: octree.share(json)
+ *
+ *  @param path  function full path
+ *  @param block        handler
+ */
+- (void)injectPluginWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block;
+
+
+/**
+ *  inject plugin
+ *
+ *  js : path(json, responeCallback) eg: octree.share(json, callback)
+ *
+ *  @param path  function full path
+ *  @param block        handler
+ */
+- (void)injectPluginWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
+
 /**
  *  remove plugin for identifier
  *

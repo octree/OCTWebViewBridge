@@ -105,6 +105,15 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
     [self injectPlugin:plugin];
 }
 
+- (void)injectPluginWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block {
+    OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionPath:path handler:block];
+    [self injectPlugin:plugin];
+}
+
+- (void)injectPluginWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+    OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionPath:path handlerWithResponseBlock:block];
+    [self injectPlugin:plugin];
+}
 
 - (void)removePluginForIdentifier:(NSString *)identifier {
 

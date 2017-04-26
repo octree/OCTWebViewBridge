@@ -9,6 +9,36 @@
 #import "OCTBlockPlugin.h"
 
 
+NSString *OCTObjectDefineJavascriptCode(NSString *path) {
+    return [NSString stringWithFormat:@"if(%@==null){ %@ = {} }", path, path];
+}
+
+NSString *OCTFunctionDefineCode(NSString *path, NSString *identifier, BOOL needCallback) {
+    
+    
+    if (needCallback) {
+        return [NSString stringWithFormat:@"if(%@==null) { %@ = function(param, callback) { window.bridge.invoke('%@', 'invoke:callback:', callback, param)} }", path, path, identifier];
+    } else {
+        return [NSString stringWithFormat:@"if(%@==null) { %@ = function(param) { window.bridge.invoke('%@', 'invoke:', null, param)} }", path, path, identifier];
+    }
+}
+
+NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL needCallback) {
+    
+    NSArray *array = [path componentsSeparatedByString:@"."];
+    NSInteger count = array.count - 1;
+    NSMutableString *pathTmp = [NSMutableString stringWithString:@"this"];
+    NSMutableString *code = [NSMutableString string];
+    NSInteger index = 0;
+    while (index < count) {
+        [pathTmp appendFormat:@".%@", array[index++]];
+        [code appendString:OCTObjectDefineJavascriptCode(pathTmp)];
+    }
+    [code appendString:OCTFunctionDefineCode(path, identifier, needCallback)];
+    return code;
+}
+
+
 @interface OCTBlockPlugin ()
 
 @property (strong, nonatomic) void (^handler)(NSDictionary *param);
@@ -48,8 +78,34 @@
     return self;
 }
 
+- (instancetype)initWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block {
+    if (self = [super init]) {
+        
+        NSParameterAssert(path.length > 0);
+        NSParameterAssert(block != nil);
+        _handler = block;
+        _identifier = [NSString stringWithFormat:@"me.octree.plugin3.%@", path];
+        _javascriptCode = OCTJavascriptCodeForPath(path, _identifier, NO);
+    }
+    return self;
+}
+
+- (instancetype)initWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+    if (self = [super init]) {
+        
+        NSParameterAssert(path.length > 0);
+        NSParameterAssert(block != nil);
+        self.handlerWithResponseBlock = block;
+        _identifier = [NSString stringWithFormat:@"me.octree.plugin4.%@", path];
+        _javascriptCode = OCTJavascriptCodeForPath(path, _identifier, YES);
+    }
+    
+    return self;
+}
+
 
 #pragma mark - Private Method
+
 
 - (void)invoke:(NSDictionary *)param {
 

@@ -23,9 +23,9 @@
         
         function test2() {
             
-            window.bridge.plugin.test2({'hello': 'world'}, function(json) {
-                                            window.bridge.log(JSON.stringify(json))
-                                      })
+            octree.util.log({'hello': 'world'}, function(json) {
+                                window.bridge.log(json)
+                            })
         }
     
     </script>
