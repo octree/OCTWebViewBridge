@@ -11,5 +11,9 @@
 
 #import "OCTWebViewPlugin.h"
 #import "OCTWebViewPluginInjector.h"
+#import "OCTLogger.h"
+#import "OCTConsoleLogger.h"
+#import "OCTFileLogger.h"
+
 
 #endif /* OCTWebViewBridge_h */
