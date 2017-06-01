@@ -9,6 +9,11 @@ window.bridge.log = function(msg) {
     window.bridge.invoke("me.octree.bridge.log", "log:", null, msg)
 }
 
+window.bridge.loglevel = function(msg, level) {
+
+     window.bridge.invoke("me.octree.bridge.log", "log:level:", null, msg, level)
+}
+
 
 ;(function() {
   
@@ -33,5 +38,30 @@ window.bridge.log = function(msg) {
   console.log = function(msg) {
     exlog(msg)
     window.bridge.log(stringify(msg))
+  }
+  
+  
+  var exdebug = window.console.debug
+  console.debug = function(msg) {
+    exdebug(msg)
+    window.bridge.loglevel(stringify(msg), 1)
+  }
+  
+  var exinfo = window.console.info
+  console.info = function(msg) {
+    exdebug(msg)
+    window.bridge.loglevel(stringify(msg), 2)
+  }
+  
+  var exwarn = window.console.warn
+  console.warn = function(msg) {
+    exwarn(msg)
+    window.bridge.loglevel(stringify(msg), 3)
+  }
+  
+  var exerror = window.console.error
+  console.error = function(msg) {
+    exerror(msg)
+    window.bridge.loglevel(stringify(msg), 4)
   }
 })()

@@ -22,9 +22,14 @@
     return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
 }
 
-- (void)log:(id)msg {
+- (void)log:(NSString *)msg {
     
     [self.logger log:msg];
+}
+
+- (void)log:(NSString *)msg level:(NSNumber *)level {
+    
+    [self.logger log:msg level:[level integerValue]];
 }
 
 - (OCTWebViewPluginInjectionTime)injectionTime {

@@ -255,13 +255,12 @@
     [[[NSData alloc] init] writeToFile:self.filePath atomically:YES];
 }
 
-- (void)log:(NSString *)msg {
+- (void)log:(NSString *)msg level:(OCTLogLevel)level {
 
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"YYYY-MM-dd HH:mm ss";
-    NSString *dateString = [formatter stringFromDate:date];
-    NSString *log = [NSString stringWithFormat:@"🌶🐔 >>>>>>>>>>>>>>>>>>>>\n%@[🌎 WebView Log] 👉🏻\n%@\n\n", dateString, msg];
+    if (level < self.level) {
+        return;
+    }
+    NSString *log = [self.destination formattedMessageForMessage:msg level:level];
     
     NSData *logData = [log dataUsingEncoding:NSUTF8StringEncoding];
     [self.currentFileHandle writeData:logData];

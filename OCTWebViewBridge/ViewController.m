@@ -61,6 +61,7 @@
 - (OCTLogger *)logger {
 
     OCTLogger *logger = [[OCTLogger alloc] init];
+    [logger addLogger:[OCTFileLogger loggerWithPath:[self logpath]]];
     [logger addLogger:[[OCTConsoleLogger alloc] init]];
     return logger;
 }

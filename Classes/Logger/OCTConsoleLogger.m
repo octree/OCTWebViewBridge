@@ -10,14 +10,14 @@
 
 @implementation OCTConsoleLogger
 
-- (void)log:(NSString *)msg {
 
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"YYYY-MM-dd HH:mm ss";
-    NSString *dateString = [formatter stringFromDate:date];
-    NSString *log = [NSString stringWithFormat:@"🌶🐔 >>>>>>>>>>>>>>>>>>>>\n%@[🌎 WebView Log] 👉🏻\n%@\n\n", dateString, msg];
-    fprintf(stderr, "%s", log.UTF8String);
+- (void)log:(NSString *)msg level:(OCTLogLevel)level {
+
+    if (level < self.level) {
+        return;
+    }
+    
+    fprintf(stderr, "%s", [self.destination formattedMessageForMessage:msg level:level].UTF8String);
 }
 
 @end

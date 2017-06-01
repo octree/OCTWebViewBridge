@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCTLogLevel.h"
+#import "OCTBaseDestination.h"
 
 @interface OCTLogger : NSObject
 
+@property (nonatomic) OCTLogLevel level;
+@property (strong, nonatomic) OCTBaseDestination *destination;
+
 - (void)log:(NSString *)msg;
+- (void)log:(NSString *)msg level:(OCTLogLevel)level;
 - (void)addLogger:(OCTLogger *)logger;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "OCTLogger.h"
+#import "OCTConsoleDestination.h"
 
 @interface OCTLogger ()
 
@@ -16,10 +17,27 @@
 
 @implementation OCTLogger
 
-- (void)log:(NSString *)msg {
+- (instancetype)init {
 
-    [self.p_loggers makeObjectsPerformSelector:@selector(log:) withObject:msg];
+    if (self = [super init]) {
+        
+        self.destination = [[OCTConsoleDestination alloc] init];
+    }
+    return self;
 }
+
+- (void)log:(NSString *)msg {
+    
+    [self log:msg level:OCTLogLevelVerbose];
+}
+
+- (void)log:(NSString *)msg level:(OCTLogLevel)level {
+
+    for (OCTLogger *logger in self.p_loggers) {
+        [logger log:msg level:level];
+    }
+}
+
 
 - (void)addLogger:(OCTLogger *)logger {
 

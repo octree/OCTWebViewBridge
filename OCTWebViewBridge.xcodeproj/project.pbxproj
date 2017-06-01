@@ -31,6 +31,8 @@
 		C2F905C41EE00B4800B1E9D6 /* OCTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905C31EE00B4800B1E9D6 /* OCTLogger.m */; };
 		C2F905C71EE00DA800B1E9D6 /* OCTConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905C61EE00DA800B1E9D6 /* OCTConsoleLogger.m */; };
 		C2F905CA1EE00E3E00B1E9D6 /* OCTFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905C91EE00E3E00B1E9D6 /* OCTFileLogger.m */; };
+		C2F905D91EE064C000B1E9D6 /* OCTBaseDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905D81EE064C000B1E9D6 /* OCTBaseDestination.m */; };
+		C2F905DC1EE0651400B1E9D6 /* OCTConsoleDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905DB1EE0651400B1E9D6 /* OCTConsoleDestination.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,11 @@
 		C2F905C61EE00DA800B1E9D6 /* OCTConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTConsoleLogger.m; sourceTree = "<group>"; };
 		C2F905C81EE00E3E00B1E9D6 /* OCTFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTFileLogger.h; sourceTree = "<group>"; };
 		C2F905C91EE00E3E00B1E9D6 /* OCTFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTFileLogger.m; sourceTree = "<group>"; };
+		C2F905D71EE064C000B1E9D6 /* OCTBaseDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTBaseDestination.h; sourceTree = "<group>"; };
+		C2F905D81EE064C000B1E9D6 /* OCTBaseDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTBaseDestination.m; sourceTree = "<group>"; };
+		C2F905DA1EE0651400B1E9D6 /* OCTConsoleDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTConsoleDestination.h; sourceTree = "<group>"; };
+		C2F905DB1EE0651400B1E9D6 /* OCTConsoleDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTConsoleDestination.m; sourceTree = "<group>"; };
+		C2F905DD1EE06EA400B1E9D6 /* OCTLogLevel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCTLogLevel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,12 +259,17 @@
 		C2F905C11EE00B3400B1E9D6 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				C2F905D71EE064C000B1E9D6 /* OCTBaseDestination.h */,
+				C2F905D81EE064C000B1E9D6 /* OCTBaseDestination.m */,
+				C2F905DA1EE0651400B1E9D6 /* OCTConsoleDestination.h */,
+				C2F905DB1EE0651400B1E9D6 /* OCTConsoleDestination.m */,
 				C2F905C21EE00B4800B1E9D6 /* OCTLogger.h */,
 				C2F905C31EE00B4800B1E9D6 /* OCTLogger.m */,
 				C2F905C51EE00DA800B1E9D6 /* OCTConsoleLogger.h */,
 				C2F905C61EE00DA800B1E9D6 /* OCTConsoleLogger.m */,
 				C2F905C81EE00E3E00B1E9D6 /* OCTFileLogger.h */,
 				C2F905C91EE00E3E00B1E9D6 /* OCTFileLogger.m */,
+				C2F905DD1EE06EA400B1E9D6 /* OCTLogLevel.h */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -377,6 +389,7 @@
 			files = (
 				C227EDF71E683B1D008FCF92 /* OCTAlertPlugin.m in Sources */,
 				C227EDBA1E6826D1008FCF92 /* ViewController.m in Sources */,
+				C2F905DC1EE0651400B1E9D6 /* OCTConsoleDestination.m in Sources */,
 				C2A4201E1E6930720067FE0B /* OCTCSSInjectionPlugin.m in Sources */,
 				C227EDB71E6826D1008FCF92 /* AppDelegate.m in Sources */,
 				C2F905C41EE00B4800B1E9D6 /* OCTLogger.m in Sources */,
@@ -384,6 +397,7 @@
 				C227EDB41E6826D1008FCF92 /* main.m in Sources */,
 				C2F905C01EE0059700B1E9D6 /* OCTLogPlugin.m in Sources */,
 				C2F905CA1EE00E3E00B1E9D6 /* OCTFileLogger.m in Sources */,
+				C2F905D91EE064C000B1E9D6 /* OCTBaseDestination.m in Sources */,
 				C2F905C71EE00DA800B1E9D6 /* OCTConsoleLogger.m in Sources */,
 				C227EDE81E6829BC008FCF92 /* OCTWebViewPluginInjector.m in Sources */,
 			);
