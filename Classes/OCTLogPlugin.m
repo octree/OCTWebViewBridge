@@ -1,12 +1,13 @@
 //
-//  TDFLogBridge.m
-//  TDFWebViewBridge
+//  OCTLogPlugin.m
+//  OCTWebViewBridge
 //
-//  Created by Octree on 15/2/17.
+//  Created by Octree on 2017/6/1.
 //  Copyright © 2017年 Octree. All rights reserved.
 //
 
 #import "OCTLogPlugin.h"
+#import "OCTLogger.h"
 
 @implementation OCTLogPlugin
 
@@ -17,14 +18,18 @@
 
 - (NSString *)javascriptCode {
     
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"log" ofType:@"js"];
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"log_plugin" ofType:@"js"];
     return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
 }
 
-
 - (void)log:(id)msg {
+    
+    [self.logger log:msg];
+}
 
-    NSLog(@"WebView Bridge: %@", [msg description]);
+- (OCTWebViewPluginInjectionTime)injectionTime {
+    
+    return OCTWebViewPluginInjectionTimeAtDocumentStart;
 }
 
 @end

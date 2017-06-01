@@ -17,7 +17,6 @@
 		C227EDE11E682785008FCF92 /* message.js in Resources */ = {isa = PBXBuildFile; fileRef = C227EDE01E682785008FCF92 /* message.js */; };
 		C227EDE81E6829BC008FCF92 /* OCTWebViewPluginInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = C227EDE71E6829BC008FCF92 /* OCTWebViewPluginInjector.m */; };
 		C227EDED1E683B08008FCF92 /* log.js in Resources */ = {isa = PBXBuildFile; fileRef = C227EDEC1E683B08008FCF92 /* log.js */; };
-		C227EDF01E683B11008FCF92 /* OCTLogPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C227EDEF1E683B11008FCF92 /* OCTLogPlugin.m */; };
 		C227EDF51E683B1D008FCF92 /* alert.js in Resources */ = {isa = PBXBuildFile; fileRef = C227EDF11E683B1D008FCF92 /* alert.js */; };
 		C227EDF61E683B1D008FCF92 /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = C227EDF21E683B1D008FCF92 /* demo.html */; };
 		C227EDF71E683B1D008FCF92 /* OCTAlertPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C227EDF41E683B1D008FCF92 /* OCTAlertPlugin.m */; };
@@ -27,6 +26,11 @@
 		C273E1101E6932CA00737C0B /* css_injector.js in Resources */ = {isa = PBXBuildFile; fileRef = C273E10F1E6932CA00737C0B /* css_injector.js */; };
 		C273E1141E6960A600737C0B /* bootstrap.css in Resources */ = {isa = PBXBuildFile; fileRef = C273E1131E6960A600737C0B /* bootstrap.css */; };
 		C2A4201E1E6930720067FE0B /* OCTCSSInjectionPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A4201D1E6930720067FE0B /* OCTCSSInjectionPlugin.m */; };
+		C2F905BD1EE0052C00B1E9D6 /* log_plugin.js in Resources */ = {isa = PBXBuildFile; fileRef = C2F905BC1EE0052C00B1E9D6 /* log_plugin.js */; };
+		C2F905C01EE0059700B1E9D6 /* OCTLogPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905BF1EE0059700B1E9D6 /* OCTLogPlugin.m */; };
+		C2F905C41EE00B4800B1E9D6 /* OCTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905C31EE00B4800B1E9D6 /* OCTLogger.m */; };
+		C2F905C71EE00DA800B1E9D6 /* OCTConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905C61EE00DA800B1E9D6 /* OCTConsoleLogger.m */; };
+		C2F905CA1EE00E3E00B1E9D6 /* OCTFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F905C91EE00E3E00B1E9D6 /* OCTFileLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +62,6 @@
 		C227EDE61E6829BC008FCF92 /* OCTWebViewPluginInjector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTWebViewPluginInjector.h; sourceTree = "<group>"; };
 		C227EDE71E6829BC008FCF92 /* OCTWebViewPluginInjector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTWebViewPluginInjector.m; sourceTree = "<group>"; };
 		C227EDEC1E683B08008FCF92 /* log.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = log.js; sourceTree = "<group>"; };
-		C227EDEE1E683B11008FCF92 /* OCTLogPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTLogPlugin.h; sourceTree = "<group>"; };
-		C227EDEF1E683B11008FCF92 /* OCTLogPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTLogPlugin.m; sourceTree = "<group>"; };
 		C227EDF11E683B1D008FCF92 /* alert.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = alert.js; sourceTree = "<group>"; };
 		C227EDF21E683B1D008FCF92 /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
 		C227EDF31E683B1D008FCF92 /* OCTAlertPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTAlertPlugin.h; sourceTree = "<group>"; };
@@ -73,6 +75,15 @@
 		C273E1131E6960A600737C0B /* bootstrap.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.css; sourceTree = "<group>"; };
 		C2A4201C1E6930720067FE0B /* OCTCSSInjectionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTCSSInjectionPlugin.h; sourceTree = "<group>"; };
 		C2A4201D1E6930720067FE0B /* OCTCSSInjectionPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTCSSInjectionPlugin.m; sourceTree = "<group>"; };
+		C2F905BC1EE0052C00B1E9D6 /* log_plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = log_plugin.js; sourceTree = "<group>"; };
+		C2F905BE1EE0059700B1E9D6 /* OCTLogPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTLogPlugin.h; sourceTree = "<group>"; };
+		C2F905BF1EE0059700B1E9D6 /* OCTLogPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTLogPlugin.m; sourceTree = "<group>"; };
+		C2F905C21EE00B4800B1E9D6 /* OCTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTLogger.h; sourceTree = "<group>"; };
+		C2F905C31EE00B4800B1E9D6 /* OCTLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTLogger.m; sourceTree = "<group>"; };
+		C2F905C51EE00DA800B1E9D6 /* OCTConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTConsoleLogger.h; sourceTree = "<group>"; };
+		C2F905C61EE00DA800B1E9D6 /* OCTConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTConsoleLogger.m; sourceTree = "<group>"; };
+		C2F905C81EE00E3E00B1E9D6 /* OCTFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTFileLogger.h; sourceTree = "<group>"; };
+		C2F905C91EE00E3E00B1E9D6 /* OCTFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTFileLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +163,7 @@
 				C227EDF81E683B3C008FCF92 /* OCTWebViewBridge.h */,
 				C227EDDE1E682764008FCF92 /* Resources */,
 				C227EDFF1E68431F008FCF92 /* Plugins */,
+				C2F905C11EE00B3400B1E9D6 /* Logger */,
 				C227EDD81E6826EC008FCF92 /* Core */,
 			);
 			path = Classes;
@@ -190,6 +202,7 @@
 				C227EDFB1E684099008FCF92 /* block_plugin_template.js */,
 				C227EDFD1E6842E3008FCF92 /* block_plugin_with_callback_template.js */,
 				C273E10F1E6932CA00737C0B /* css_injector.js */,
+				C2F905BC1EE0052C00B1E9D6 /* log_plugin.js */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -197,8 +210,6 @@
 		C227EDE91E683AA9008FCF92 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				C227EDEE1E683B11008FCF92 /* OCTLogPlugin.h */,
-				C227EDEF1E683B11008FCF92 /* OCTLogPlugin.m */,
 				C227EDF31E683B1D008FCF92 /* OCTAlertPlugin.h */,
 				C227EDF41E683B1D008FCF92 /* OCTAlertPlugin.m */,
 				C227EDEB1E683AC4008FCF92 /* web */,
@@ -232,8 +243,23 @@
 				C227EE011E684335008FCF92 /* OCTBlockPlugin.m */,
 				C2A4201C1E6930720067FE0B /* OCTCSSInjectionPlugin.h */,
 				C2A4201D1E6930720067FE0B /* OCTCSSInjectionPlugin.m */,
+				C2F905BE1EE0059700B1E9D6 /* OCTLogPlugin.h */,
+				C2F905BF1EE0059700B1E9D6 /* OCTLogPlugin.m */,
 			);
 			name = Plugins;
+			sourceTree = "<group>";
+		};
+		C2F905C11EE00B3400B1E9D6 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				C2F905C21EE00B4800B1E9D6 /* OCTLogger.h */,
+				C2F905C31EE00B4800B1E9D6 /* OCTLogger.m */,
+				C2F905C51EE00DA800B1E9D6 /* OCTConsoleLogger.h */,
+				C2F905C61EE00DA800B1E9D6 /* OCTConsoleLogger.m */,
+				C2F905C81EE00E3E00B1E9D6 /* OCTFileLogger.h */,
+				C2F905C91EE00E3E00B1E9D6 /* OCTFileLogger.m */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F905BD1EE0052C00B1E9D6 /* log_plugin.js in Resources */,
 				C273E1141E6960A600737C0B /* bootstrap.css in Resources */,
 				C227EDED1E683B08008FCF92 /* log.js in Resources */,
 				C227EDC21E6826D1008FCF92 /* LaunchScreen.storyboard in Resources */,
@@ -352,9 +379,12 @@
 				C227EDBA1E6826D1008FCF92 /* ViewController.m in Sources */,
 				C2A4201E1E6930720067FE0B /* OCTCSSInjectionPlugin.m in Sources */,
 				C227EDB71E6826D1008FCF92 /* AppDelegate.m in Sources */,
+				C2F905C41EE00B4800B1E9D6 /* OCTLogger.m in Sources */,
 				C227EE021E684335008FCF92 /* OCTBlockPlugin.m in Sources */,
-				C227EDF01E683B11008FCF92 /* OCTLogPlugin.m in Sources */,
 				C227EDB41E6826D1008FCF92 /* main.m in Sources */,
+				C2F905C01EE0059700B1E9D6 /* OCTLogPlugin.m in Sources */,
+				C2F905CA1EE00E3E00B1E9D6 /* OCTFileLogger.m in Sources */,
+				C2F905C71EE00DA800B1E9D6 /* OCTConsoleLogger.m in Sources */,
 				C227EDE81E6829BC008FCF92 /* OCTWebViewPluginInjector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

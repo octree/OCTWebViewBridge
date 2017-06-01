@@ -11,6 +11,8 @@
 #import <WebKit/WebKit.h>
 #import "OCTLogPlugin.h"
 #import "OCTAlertPlugin.h"
+#import "OCTConsoleLogger.h"
+#import "OCTFileLogger.h"
 
 @interface ViewController ()
 
@@ -41,7 +43,26 @@
 
 - (IBAction)reloadWebView:(id)sender {
     
-    [self.webView loadHTMLString:[self html] baseURL:nil];
+//    [self.webView loadHTMLString:[self html] baseURL:nil];
+    NSString *string = [NSString stringWithContentsOfFile:[self logpath] encoding:NSUTF8StringEncoding error:NULL];
+    NSLog(@"%@", string);
+}
+
+- (NSString *)logpath {
+
+    NSArray *myPathList = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *myPath    = [myPathList  objectAtIndex:0];
+    
+    myPath = [[myPath stringByAppendingPathComponent:@"me.octree.log"] stringByAppendingPathComponent:@"yooo"];
+    
+    return [myPath stringByAppendingPathComponent:@"web_console.log"];
+}
+
+- (OCTLogger *)logger {
+
+    OCTLogger *logger = [[OCTLogger alloc] init];
+    [logger addLogger:[[OCTConsoleLogger alloc] init]];
+    return logger;
 }
 
 - (WKWebView *)webView {
@@ -56,8 +77,9 @@
         frame.origin.y = 30;
         frame.size.height = 400;
         _webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
-        
-        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:[[OCTLogPlugin alloc] init]];
+        OCTLogPlugin *plugin = [[OCTLogPlugin alloc] init];
+        plugin.logger = [self logger];
+        [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:plugin];
         [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPlugin:[[OCTAlertPlugin alloc] init]];
         [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionName:@"test" handler:^(NSDictionary *data) {
             
