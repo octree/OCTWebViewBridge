@@ -15,6 +15,6 @@
 #import "OCTConsoleLogger.h"
 #import "OCTFileLogger.h"
 #import "OCTLogPlugin.h"
-
+#import "OCTBaseDestination.h"
 
 #endif /* OCTWebViewBridge_h */
