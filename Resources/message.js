@@ -11,7 +11,7 @@ window.bridge.callbackDispatcher = {
     },
     invoke: function(id, args) {
         let key = '' + id
-        let func = window.bridge.callback.cache[key]
+        let func = window.bridge.callbackDispatcher.cache[key]
         func(args)
     },
     push: function(func) {
