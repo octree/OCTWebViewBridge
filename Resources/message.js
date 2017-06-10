@@ -5,26 +5,29 @@ if (!window.bridge) {
     window.bridge = {}
 }
 
-window.bridge.callback = {
-    index: 0,
+window.bridge.callbackDispatcher = {
+    __count: 0,
     cache: {
     },
     invoke: function(id, args) {
         let key = '' + id
-        let callback = window.bridge.callback.cache[key]
-        callback(args)
-//        delete window.bridge.callback.cache[key]
+        let func = window.bridge.callback.cache[key]
+        func(args)
+    },
+    push: function(func) {
+        let index = -1
+        if (func != null ) {
+            window.bridge.callbackDispatcher.__count += 1
+            index = window.bridge.callbackDispatcher.__count
+            window.bridge.callbackDispatcher.cache['' + index] = func
+        }
+        return index
     }
 }
 
 window.bridge.invoke = function(id, selector, callback, ...args) {
-    let index = -1
-    if (callback !== null && callback !== undefined ) {
-        window.bridge.callback.index += 1
-        index = window.bridge.callback.index
-        window.bridge.callback.cache['' + index] = callback
-    }
-    window.webkit.messageHandlers.bridge.postMessage({"identifier": id, "selector": selector, "callbackId": index, "args": args })
+        let index = window.bridge.callbackDispatcher.push(callback)
+        window.webkit.messageHandlers.bridge.postMessage({"identifier": id, "selector": selector, "callbackId": index, "args": args })
 }
 
 window.bridge.plugin = { }

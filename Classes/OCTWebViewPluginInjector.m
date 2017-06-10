@@ -273,7 +273,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
         }
     }
     
-    NSString *code = [NSString stringWithFormat:@"window.bridge.callback.invoke(%zd, %@)", callbackId, json];
+    NSString *code = [NSString stringWithFormat:@"window.bridge.callbackDispatcher.invoke(%zd, %@)", callbackId, json];
     [self.webView evaluateJavaScript:code completionHandler:nil];
 }
 
