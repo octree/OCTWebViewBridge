@@ -41,8 +41,8 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
 
 @interface OCTBlockPlugin ()
 
-@property (strong, nonatomic) void (^handler)(NSDictionary *param);
-@property (strong, nonatomic) void (^handlerWithResponseBlock)(NSDictionary *param, OCTResponseCallback block);
+@property (strong, nonatomic) void (^handler)(id param);
+@property (strong, nonatomic) void (^handlerWithResponseBlock)(id param, OCTResponseCallback block);
 
 @end
 
@@ -50,7 +50,7 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block {
+- (instancetype)initWithFunctionName:(NSString *)functionName handler:(void(^)(id data))block {
 
     if (self = [super init]) {
         
@@ -64,7 +64,7 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
     return self;
 }
 
-- (instancetype)initWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+- (instancetype)initWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block {
 
     if (self = [super init]) {
         
@@ -78,7 +78,7 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
     return self;
 }
 
-- (instancetype)initWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block {
+- (instancetype)initWithFunctionPath:(NSString *)path handler:(void(^)(id data))block {
     if (self = [super init]) {
         
         NSParameterAssert(path.length > 0);
@@ -90,7 +90,7 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
     return self;
 }
 
-- (instancetype)initWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+- (instancetype)initWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block {
     if (self = [super init]) {
         
         NSParameterAssert(path.length > 0);
@@ -107,12 +107,12 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
 #pragma mark - Private Method
 
 
-- (void)invoke:(NSDictionary *)param {
+- (void)invoke:(id)param {
 
     !self.handler ?: self.handler(param);
 }
 
-- (void)invoke:(NSDictionary *)param callback:(OCTResponseCallback)callback {
+- (void)invoke:(id)param callback:(OCTResponseCallback)callback {
 
     !self.handlerWithResponseBlock ?: self.handlerWithResponseBlock(param, callback);
 }

@@ -17,9 +17,9 @@ typedef NS_ENUM(NSInteger, OCTWebViewPluginInjectionTime) {
 /**
  *  JS 函数需要 Native 处理数据后，回调传回数据
  *
- *  @param params js 回调函数的参数
+ *  @param params js 回调函数的参数, params 只能是 NSNumber NSString NSArray NSDictionary
  */
-typedef void (^OCTResponseCallback)(NSDictionary *params);
+typedef void (^OCTResponseCallback)(id params);
 
 /**
  *  WebView 的扩展，把 Native Bridge 到 WebView 中的 Object 需要实现这个协议

@@ -14,10 +14,10 @@
 @property (copy, nonatomic, readonly) NSString *identifier;
 @property (copy, nonatomic, readonly) NSString *javascriptCode;
 
-- (instancetype)initWithFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block;
-- (instancetype)initWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
-- (instancetype)initWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block;
-- (instancetype)initWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
+- (instancetype)initWithFunctionName:(NSString *)functionName handler:(void(^)(id data))block;
+- (instancetype)initWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block;
+- (instancetype)initWithFunctionPath:(NSString *)path handler:(void(^)(id data))block;
+- (instancetype)initWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block;
 
 
 @end

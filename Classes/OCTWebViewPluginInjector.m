@@ -248,7 +248,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
         __weak __typeof(self) wself = self;
         
         NSString *identifier = [[self class] generateCallbackIdentifier];
-        OCTResponseCallback callback = ^void(NSDictionary *param) {
+        OCTResponseCallback callback = ^void(id param) {
             __strong __typeof(wself) sself = wself;
             [sself invokeCallbackWithId:callbackId param:param];
             
@@ -262,14 +262,15 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 }
 
 
-- (void)invokeCallbackWithId:(NSInteger)callbackId param:(NSDictionary *)param {
+- (void)invokeCallbackWithId:(NSInteger)callbackId param:(id)param {
     
     NSString *json = @"null";
     if (param) {
         NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:param options:NSJSONWritingPrettyPrinted error:&error];
+        NSData *data = [NSJSONSerialization dataWithJSONObject:@[ param ] options:0 error:NULL];
         if (!error) {
             json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            json = [json substringWithRange:NSMakeRange(1, json.length - 2)];
         }
     }
     
