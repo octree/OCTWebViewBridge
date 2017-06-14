@@ -14,6 +14,6 @@
 
 @property (copy, nonatomic, readonly) NSString *javascriptCode;
 
-- (void)alert:(NSString *)msg confirm:(void(^)(NSDictionary *params))callback;
+- (void)alert:(NSString *)msg confirm:(OCTResponseCallback)callback;
 
 @end

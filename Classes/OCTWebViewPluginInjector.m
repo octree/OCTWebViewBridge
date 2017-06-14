@@ -422,6 +422,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 - (void)swizzled_dealloc {
     
     [[OCTWebViewInjectorCache sharedInstance] removeInjectorForWebView:self];
+    [self swizzled_dealloc];
 }
 
 @end

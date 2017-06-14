@@ -22,6 +22,7 @@
     return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
 }
 
+
 - (void)alert:(NSString *)msg confirm:(OCTResponseCallback)callback {
 
     UIAlertController *avc = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
