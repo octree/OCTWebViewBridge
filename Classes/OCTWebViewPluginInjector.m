@@ -92,25 +92,25 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
               forMainFrameOnly:NO];
 }
 
-- (void)injectPluginWithFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block {
+- (void)injectPluginWithFunctionName:(NSString *)functionName handler:(void(^)(id data))block {
 
     OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionName:functionName handler:block];
     [self injectPlugin:plugin];
 }
 
 
-- (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+- (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block {
 
     OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionName:functionName handlerWithResponseBlock:block];
     [self injectPlugin:plugin];
 }
 
-- (void)injectPluginWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block {
+- (void)injectPluginWithFunctionPath:(NSString *)path handler:(void(^)(id data))block {
     OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionPath:path handler:block];
     [self injectPlugin:plugin];
 }
 
-- (void)injectPluginWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block {
+- (void)injectPluginWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block {
     OCTBlockPlugin *plugin = [[OCTBlockPlugin alloc] initWithFunctionPath:path handlerWithResponseBlock:block];
     [self injectPlugin:plugin];
 }

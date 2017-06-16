@@ -30,7 +30,7 @@
  *  @param functionName js function name
  *  @param block        handler
  */
-- (void)injectPluginWithFunctionName:(NSString *)functionName handler:(void(^)(NSDictionary *data))block;
+- (void)injectPluginWithFunctionName:(NSString *)functionName handler:(void(^)(id data))block;
 
 
 /**
@@ -41,7 +41,7 @@
  *  @param functionName js function name
  *  @param block        handler
  */
-- (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
+- (void)injectPluginWithFunctionName:(NSString *)functionName handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block;
 
 
 
@@ -53,7 +53,7 @@
  *  @param path  function full path
  *  @param block        handler
  */
-- (void)injectPluginWithFunctionPath:(NSString *)path handler:(void(^)(NSDictionary *data))block;
+- (void)injectPluginWithFunctionPath:(NSString *)path handler:(void(^)(id data))block;
 
 
 /**
@@ -64,7 +64,7 @@
  *  @param path  function full path
  *  @param block        handler
  */
-- (void)injectPluginWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(NSDictionary *data, OCTResponseCallback responseCallback))block;
+- (void)injectPluginWithFunctionPath:(NSString *)path handlerWithResponseBlock:(void(^)(id data, OCTResponseCallback responseCallback))block;
 
 /**
  *  remove plugin for identifier
