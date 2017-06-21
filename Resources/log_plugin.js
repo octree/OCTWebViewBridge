@@ -21,6 +21,14 @@ window.bridge.loglevel = function(msg, level) {
       if (typeof obj === 'function') {
         return obj + ''
       }
+  
+      if (obj === undefined) {
+          return 'undefined'
+      }
+  
+      if (obj === null) {
+          return 'null'
+      }
       var placeholder = '____PLACEHOLDER____XXOOO___';
       var fns = [];
       var json = JSON.stringify(obj, function(key, value) {
