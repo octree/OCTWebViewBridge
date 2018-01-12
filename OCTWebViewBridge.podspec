@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OCTWebViewBridge"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "WKWebView Javascript Bridge"
 
   # This description is used to generate tags and improve search results.
