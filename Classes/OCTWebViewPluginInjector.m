@@ -126,6 +126,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 
     self.pluginMap = nil;
     [self.webView.configuration.userContentController removeAllUserScripts];
+    [self injectCorePlugin];
 }
 
 
