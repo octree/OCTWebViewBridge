@@ -83,55 +83,26 @@ s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/octree/OCTWebViewBridge.git", :tag => "#{s.version}" }
 
 
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
+  # 源码配置都放这里面
+  tdfire_source_configurator = lambda do |s|
+    s.source_files  = "Classes", "Classes/**/*.{h,m}"
+    s.public_header_files = "Classes/**/*.h"
+    s.resource_bundles = {
+        'OCTWebViewBridge' => ['Resources/*.{js}']
+    }
+  end
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
+# 这一块原样拷贝即可（记得放在最后面）
+  unless %w[tdfire_set_binary_download_configurations tdfire_source tdfire_binary].reduce(true) { |r, m| s.respond_to?(m) & r }
 
-  # s.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  s.resource  = "icon.png"
-  s.resources = "Resources/*.{js}"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+    tdfire_source_configurator.call s 
+  else
+    s.tdfire_source tdfire_source_configurator
+    s.tdfire_binary tdfire_source_configurator
+    s.tdfire_set_binary_download_configurations
+  end
 
 
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-s.framework  = "WebKit"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
-
+  s.framework  = "WebKit"
+ 
 end

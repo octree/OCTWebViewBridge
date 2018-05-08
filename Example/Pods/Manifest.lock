@@ -1,0 +1,16 @@
+PODS:
+  - OCTWebViewBridge (1.0.4)
+
+DEPENDENCIES:
+  - OCTWebViewBridge (from `../`)
+
+EXTERNAL SOURCES:
+  OCTWebViewBridge:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OCTWebViewBridge: 668615b92c8fdd59789127cd67f42af96768a843
+
+PODFILE CHECKSUM: 5ed5ed352eaab9e98e77c9f1cc6db664a56f6278
+
+COCOAPODS: 1.2.1

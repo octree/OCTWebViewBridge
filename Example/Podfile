@@ -1,0 +1,19 @@
+
+source 'git@git.2dfire-inc.com:ios/cocoapods-spec.git'
+platform :ios, '8.0'
+
+
+plugin 'cocoapods-tdfire-binary'
+
+tdfire_use_binary!
+
+target 'OCTWebViewBridge' do
+  
+  pod 'OCTWebViewBridge', :path => '../'
+
+  target 'OCTWebViewBridgeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

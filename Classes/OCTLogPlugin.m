@@ -18,7 +18,8 @@
 
 - (NSString *)javascriptCode {
     
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"log_plugin" ofType:@"js"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"OCTWebViewBridge" withExtension:@"bundle"];
+    NSString *path = [[NSBundle bundleWithURL:url] pathForResource:@"log_plugin" ofType:@"js"];
     return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
 }
 
