@@ -319,8 +319,7 @@ NSString *const kOCTMessageCallbackIdKey = @"callbackId";
 
 - (NSString *)messageJavascriptCode {
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"OCTWebViewBridge" withExtension:@"bundle"];
-    NSString *path = [[NSBundle bundleWithURL:url] pathForResource:@"message" ofType:@"js"];
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"message" ofType:@"js"];
     return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
 }
 

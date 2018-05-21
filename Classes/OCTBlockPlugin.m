@@ -119,8 +119,7 @@ NSString *OCTJavascriptCodeForPath(NSString *path, NSString *identifier, BOOL ne
 
 - (NSString *)loadJSCodeWithFileName:(NSString *)fileName functionName:(NSString *)name identifier:(NSString *)identifier {
 
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"OCTWebViewBridge" withExtension:@"bundle"];
-    NSString *path = [[NSBundle bundleWithURL:url] pathForResource:fileName ofType:@"js"];
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:fileName ofType:@"js"];
     NSString *code = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
     return [[code stringByReplacingOccurrencesOfString:@"{name}" withString:name] stringByReplacingOccurrencesOfString:@"{identifier}" withString:identifier];
