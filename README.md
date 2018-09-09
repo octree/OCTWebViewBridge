@@ -5,7 +5,11 @@
 
 ## Installation
 
-pod 'OCTWebViewBridge'
+```shell
+pod OCTWebViewBridge
+```
+
+
 
 ## How To Use
 
