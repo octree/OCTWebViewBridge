@@ -24,6 +24,11 @@
 		7D6A01C19C82532C15CE5FE0 /* Pods_OCTWebViewBridge_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E22742044EA8A435CED680 /* Pods_OCTWebViewBridge_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9EC0F70A40AB671112E6D963 /* Pods_OCTWebViewBridge_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FCA616B029E69E205A8C0A /* Pods_OCTWebViewBridge_Tests.framework */; };
+		C2F76534214502160015DB32 /* alert.js in Resources */ = {isa = PBXBuildFile; fileRef = C2F7652E214502150015DB32 /* alert.js */; };
+		C2F76535214502160015DB32 /* log.js in Resources */ = {isa = PBXBuildFile; fileRef = C2F7652F214502160015DB32 /* log.js */; };
+		C2F76536214502160015DB32 /* bootstrap.css in Resources */ = {isa = PBXBuildFile; fileRef = C2F76530214502160015DB32 /* bootstrap.css */; };
+		C2F76537214502160015DB32 /* OCTAlertPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F76531214502160015DB32 /* OCTAlertPlugin.m */; };
+		C2F76538214502160015DB32 /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = C2F76533214502160015DB32 /* demo.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,12 @@
 		A7A4796618B4343D49D2ABB7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B52A84C2A252B33CF3A2F952 /* OCTWebViewBridge.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = OCTWebViewBridge.podspec; path = ../OCTWebViewBridge.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BA11BCA72784163BA1C8138D /* Pods-OCTWebViewBridge_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCTWebViewBridge_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCTWebViewBridge_Example/Pods-OCTWebViewBridge_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C2F7652E214502150015DB32 /* alert.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = alert.js; sourceTree = "<group>"; };
+		C2F7652F214502160015DB32 /* log.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = log.js; sourceTree = "<group>"; };
+		C2F76530214502160015DB32 /* bootstrap.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.css; sourceTree = "<group>"; };
+		C2F76531214502160015DB32 /* OCTAlertPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTAlertPlugin.m; sourceTree = "<group>"; };
+		C2F76532214502160015DB32 /* OCTAlertPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTAlertPlugin.h; sourceTree = "<group>"; };
+		C2F76533214502160015DB32 /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
 		D05C2D2D9EFCB7C2F6EBBBC8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D9E22742044EA8A435CED680 /* Pods_OCTWebViewBridge_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCTWebViewBridge_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE824DA9AF986A40510A2F6C /* Pods-OCTWebViewBridge_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCTWebViewBridge_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCTWebViewBridge_Example/Pods-OCTWebViewBridge_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +154,7 @@
 		6003F593195388D20070C39A /* Example for OCTWebViewBridge */ = {
 			isa = PBXGroup;
 			children = (
+				C2F7652D214501F80015DB32 /* Sample */,
 				6003F59C195388D20070C39A /* OCTAppDelegate.h */,
 				6003F59D195388D20070C39A /* OCTAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -194,6 +206,19 @@
 				D05C2D2D9EFCB7C2F6EBBBC8 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C2F7652D214501F80015DB32 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				C2F7652E214502150015DB32 /* alert.js */,
+				C2F76530214502160015DB32 /* bootstrap.css */,
+				C2F76533214502160015DB32 /* demo.html */,
+				C2F7652F214502160015DB32 /* log.js */,
+				C2F76532214502160015DB32 /* OCTAlertPlugin.h */,
+				C2F76531214502160015DB32 /* OCTAlertPlugin.m */,
+			);
+			name = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,9 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				C2F76538214502160015DB32 /* demo.html in Resources */,
+				C2F76534214502160015DB32 /* alert.js in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				C2F76535214502160015DB32 /* log.js in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				C2F76536214502160015DB32 /* bootstrap.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F76537214502160015DB32 /* OCTAlertPlugin.m in Sources */,
 				6003F59E195388D20070C39A /* OCTAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* OCTViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

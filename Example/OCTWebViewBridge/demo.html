@@ -1,0 +1,39 @@
+<html>
+    <header>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>hello world</title>
+    </header>
+    <script type="text/javascript">
+        function tapped() {
+            console.log({hello: 'world', yooo: console.log})
+        }
+    
+        function showAlert() {
+            
+            window.bridge.alert("哈哈哈 😀", function(hello) {
+                                    window.bridge.log("hello native, i received callback message")
+                                });
+        }
+        
+        function test() {
+        
+            window.bridge.plugin.test("hello world")
+        }
+        
+        function test2() {
+            
+            octree.util.log({'hello': 'world'}, function(json) {
+                                console.log(json)
+                            })
+        }
+    
+    </script>
+    <a href="javascript:tapped();">Native Log</a>
+    <br/>
+    <a href="javascript:showAlert();">Alert</a>
+    <br/>
+    <a href="javascript:test();">Simple Block Plugin</a>
+    <br/>
+    <a href="javascript:test2();">Block Plugin With Response Block</a>
+</html>
