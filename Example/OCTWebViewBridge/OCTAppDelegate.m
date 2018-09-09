@@ -2,8 +2,8 @@
 //  OCTAppDelegate.m
 //  OCTWebViewBridge
 //
-//  Created by citype on 09/09/2018.
-//  Copyright (c) 2018 citype. All rights reserved.
+//  Created by Octree on 09/09/2018.
+//  Copyright (c) 2018 Octree. All rights reserved.
 //
 
 #import "OCTAppDelegate.h"
