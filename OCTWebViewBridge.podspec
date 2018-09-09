@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   #    'OCTWebViewBridge' => ['OCTWebViewBridge/Assets/*.png']
   #  }
 
-  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'OCTWebViewBridge/Classes/**/*.h'
   s.frameworks = 'WebKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
