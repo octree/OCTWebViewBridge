@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  OCTWebViewBridge: 5f0e4e3aaafffa386dfc574f12c40e157b293e1a
+  OCTWebViewBridge: 17461dc62dcae8443a3ad5452aacc43f3abeb599
 
 PODFILE CHECKSUM: ec358df027b36a2e89ef67080c699f8cf57b3988
 

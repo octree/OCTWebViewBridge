@@ -1,0 +1,63 @@
+.CBNightMode_changeBgColor {
+    background:#353840!important
+}
+.CBNightMode_setBackground {
+    background:#353840!important;
+    color:#f3f3f3!important
+}
+.CBNightMode_changeBgLinear {
+    background:rgba(40,40,40,.6)!important
+}
+.CBNightMode_changeBorder {
+    border-color:#414c61!important
+}
+.CBNightMode_setBorder {
+    outline:#414c61 solid 1px
+}
+:not(.CBATTRIBUTE) {
+    border-color:#353840!important;
+    background-color:#353840!important
+}
+html {
+    -webkit-filter:brightness(0.5);
+}
+h1,h2,h3,h1 *, h2 *, h3 * {
+    -webkit-filter: brightness(1);
+}
+* {
+    text-shadow:none!important;
+    box-shadow:none!important
+}
+body,html {
+    background-color:#2f3238!important;
+    color:#f3f3f3!important
+}
+abbr,address,article,aside,b,bdi,bdo,blockquote,br,caption,cite,code,col,colgroup,data,datalist,dc,dd,dfn,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hr,i,kbd,keygen,label,legend,li,main,mark,meter,nav,ol,optgroup,option,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strong,sub,sup,table,tbody,td,textarea,tfoot,th,thead,time,tr,u,ul,var,wbr {
+    background-color:none;
+    color:#f3f3f3!important
+}
+textarea {
+    background-color:#353840!important
+}
+div {
+    color:#f3f3f3!important
+}
+a,a * {
+    color:#79a8ff!important
+}
+a:visited,a:visited * {
+    color:#bd8cff!important
+}
+button:not(.CBNightMode_transparentBkg):not(.CBATTRIBUTE),div:not(.CBNightMode_transparentBkg):not(.CBATTRIBUTE),input:not(.CBNightMode_transparentBkg):not(.CBATTRIBUTE),select:not(.CBNightMode_transparentBkg):not(.CBATTRIBUTE) {
+    background:#353840!important
+}
+button.CBATTRIBUTE_Done:not(.CBNightMode_transparentBkg):not(.CBNightMode_changeBgLinear):not(.CBNightMode_setBackground),div.CBATTRIBUTE_Done:not(.CBNightMode_transparentBkg):not(.CBNightMode_changeBgLinear):not(.CBNightMode_setBackground),input.CBATTRIBUTE_Done:not(.CBNightMode_transparentBkg):not(.CBNightMode_changeBgLinear):not(.CBNightMode_setBackground),select.CBATTRIBUTE_Done:not(.CBNightMode_transparentBkg):not(.CBNightMode_changeBgLinear):not(.CBNightMode_setBackground) {
+    background-color:#353840!important
+}
+input[type=date],input[type=date] *,input[type=datetime-local],input[type=datetime-local] *,input[type=month],input[type=month] *,input[type=time],input[type=time] *,select,select * {
+    color:#fff!important
+}
+button,input:not([type=button]):not([type=submit]):not([type=reset]):not([type=image]):not([type=file]):not([type=date]):not([type=datetime-local]):not([type=month]):not([type=time]),input[type=button],input[type=file],input[type=image],input[type=reset],input[type=submit] {
+    color:#f3f3f3!important;
+    border-color:#414c61!important
+}

@@ -9,12 +9,13 @@
 #ifndef OCTWebViewBridge_h
 #define OCTWebViewBridge_h
 
-#import "OCTWebViewPlugin.h"
-#import "OCTWebViewPluginInjector.h"
-#import "OCTLogger.h"
-#import "OCTConsoleLogger.h"
-#import "OCTFileLogger.h"
-#import "OCTLogPlugin.h"
-#import "OCTBaseDestination.h"
+#import <OCTWebViewBridge/OCTWebViewPlugin.h>
+#import <OCTWebViewBridge/OCTWebViewPluginInjector.h>
+#import <OCTWebViewBridge/OCTLogger.h>
+#import <OCTWebViewBridge/OCTConsoleLogger.h>
+#import <OCTWebViewBridge/OCTFileLogger.h>
+#import <OCTWebViewBridge/OCTLogPlugin.h>
+#import <OCTWebViewBridge/OCTBaseDestination.h>
+#import <OCTWebViewBridge/WKWebView+NightMode.h>
 
 #endif /* OCTWebViewBridge_h */

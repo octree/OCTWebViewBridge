@@ -14,11 +14,11 @@
 @interface OCTViewController ()
 
 @property (strong, nonatomic) WKWebView *webView;
+@property (nonatomic, getter=isNightMode) BOOL nightMode;
 
 @end
 
 @implementation OCTViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +26,18 @@
     [self.webView loadHTMLString:[self html] baseURL:nil];
 }
 
+- (IBAction)switchNightMode:(id)sender {
+    
+    if (self.isNightMode) {
+        
+        [self.webView oct_sunrise];
+    } else {
+        
+        [self.webView oct_nightFall];
+    }
+    
+    self.nightMode = !self.isNightMode;
+}
 
 - (IBAction)injectCSS:(id)sender {
     
