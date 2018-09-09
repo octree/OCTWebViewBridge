@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'OCTWebViewBridge_Example' do
+  pod 'OCTWebViewBridge', :path => '../'
+
+  target 'OCTWebViewBridge_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
