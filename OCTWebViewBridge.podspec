@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'OCTWebViewBridge/Classes/**/*'
-  s.resources = "OCTWebViewBridge/Assets/*.{js}"
+  s.resources = "OCTWebViewBridge/Assets/*.{js,css}"
   # s.resource_bundles = {
   #    'OCTWebViewBridge' => ['OCTWebViewBridge/Assets/*.png']
   #  }
