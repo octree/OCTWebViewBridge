@@ -104,6 +104,18 @@ window.bridge.plugin.test2({'hello': 'world'}, function(json) {
 [[OCTWebViewPluginInjector injectorForWebView:_webView] removeCSSStringForIdentifier:@"test"];
 ```
 
+### Night Mode 
+
+```objectivec
+
+// enable night mode
+[self.webView oct_nightFall];
+
+// disable night mode
+[self.webView oct_sunrise];
+
+```
+
 ## License
 
 OCTWebViewBridge is released under the MIT license. See LICENSE for details.
