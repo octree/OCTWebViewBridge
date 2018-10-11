@@ -1,5 +1,5 @@
 PODS:
-  - OCTWebViewBridge (1.1.0)
+  - OCTWebViewBridge (1.2.0)
 
 DEPENDENCIES:
   - OCTWebViewBridge (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  OCTWebViewBridge: 17461dc62dcae8443a3ad5452aacc43f3abeb599
+  OCTWebViewBridge: d4ea24f12cbf415523c6ae829ed0a36fce62ff02
 
 PODFILE CHECKSUM: ec358df027b36a2e89ef67080c699f8cf57b3988
 

@@ -10,8 +10,9 @@
 #import <OCTWebViewBridge/OCTWebViewBridge.h>
 #import "OCTAlertPlugin.h"
 #import <WebKit/WebKit.h>
+#import "OCTWebViewController.h"
 
-@interface OCTViewController ()
+@interface OCTViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) WKWebView *webView;
 @property (nonatomic, getter=isNightMode) BOOL nightMode;
@@ -67,6 +68,22 @@
     
     return [myPath stringByAppendingPathComponent:@"web_console.log"];
 }
+
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    OCTWebViewController *vc = [[OCTWebViewController alloc] init];
+    vc.urlString = textField.text;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    return YES;
+}
+
+#pragma mark - Accessor
 
 - (OCTLogger *)logger {
     
