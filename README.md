@@ -3,6 +3,14 @@
 起源于在老东家工作的时候的库 [YJWebView](https://github.com/TinydustDevelopers/YJWebView)
 
 
+在 WKWebView 中使用 `Javascript` 调用 Native 代码，支持函数作为参数。
+
+```javascript
+window.native.foo(param1, param2, (obj) => {
+
+})
+```
+
 ## Installation
 
 ```shell
@@ -18,8 +26,8 @@ pod OCTWebViewBridge
 javascript file（log.js）:
 ```javascript
 window.bridge.log = function(msg) {
-    
-    window.bridge.invoke("me.octree.bridge.log", "log:", null, msg)
+
+window.bridge.invoke("me.octree.bridge.log", "log:", msg)
 }
 ```
 
@@ -63,7 +71,7 @@ inject plugin
 [[OCTWebViewPluginInjector injectorForWebView:webView] injectPlugin:[[OCTLogPlugin alloc] init]];
 ```
 
-javascript call native log:
+javascript 调用 Native 代码
 
 ```
 window.bridge.log("yoooooooo man")
@@ -71,7 +79,8 @@ window.bridge.log("yoooooooo man")
 
 ### Block Plugin
 
-inject:
+使用 Block 的方式为 Web 提供插件。
+Web 调用时，会执行这个 Block
 
 ```objectivec
 [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionName:@"test" handler:^(NSDictionary *data) { 
@@ -84,7 +93,7 @@ inject:
 }];
 ```
 
-call:
+在 Web 中调用
 
 ```javascript
 window.bridge.plugin.test({'hello': 'world'})
@@ -97,6 +106,8 @@ window.bridge.plugin.test2({'hello': 'world'}, function(json) {
 
 ### CSS Injector
 
+注入 CSS 代码
+
 ```objectivec
 // inject css
 [[OCTWebViewPluginInjector injectorForWebView:_webView] injectCSSString:@"body {background-color: #eeeeee;}" forIdentifier:@"test"];
@@ -105,6 +116,8 @@ window.bridge.plugin.test2({'hello': 'world'}, function(json) {
 ```
 
 ### Night Mode 
+
+开启网页夜间模式
 
 ```objectivec
 
