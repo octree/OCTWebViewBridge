@@ -6,9 +6,9 @@
 在 WKWebView 中使用 `Javascript` 调用 Native 代码，支持函数作为参数。
 
 ```javascript
-window.native.foo(param1, param2, (obj) => {
+window.native.foo(param1, param2, (foo, bar) => {
 
-})
+}, (error) => {  })
 ```
 
 ## Installation
