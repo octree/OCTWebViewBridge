@@ -4,5 +4,5 @@ if (!window.bridge.plugin) {
 
 window.bridge.plugin.{name} = function(param, callback) {
     
-    window.bridge.invoke("{identifier}", "invoke:callback:", callback, param)
+    window.bridge.invoke("{identifier}", "invoke:callback:", param, callback)
 }

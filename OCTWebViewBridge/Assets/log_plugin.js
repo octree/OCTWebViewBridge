@@ -6,12 +6,12 @@ if (window.bridge == null) {
 
 window.bridge.log = function(msg) {
     
-    window.bridge.invoke("me.octree.bridge.log", "log:", null, msg)
+    window.bridge.invoke("me.octree.bridge.log", "log:", msg)
 }
 
 window.bridge.loglevel = function(msg, level) {
 
-     window.bridge.invoke("me.octree.bridge.log", "log:level:", null, msg, level)
+     window.bridge.invoke("me.octree.bridge.log", "log:level:", msg, level)
 }
 
 

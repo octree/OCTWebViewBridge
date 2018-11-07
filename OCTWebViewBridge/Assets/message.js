@@ -36,7 +36,7 @@ window.bridge.invoke = function(id, selector) {
     }
     
     args = args.map(function(elt) {
-                    if (typeof v === "function") {
+                    if (typeof elt === "function") {
                     return { type: 0, val: window.bridge.callbackDispatcher.push(elt) };
                     } else {
                     return { type: 1, val: elt };

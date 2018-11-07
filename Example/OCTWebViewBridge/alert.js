@@ -1,4 +1,4 @@
 window.bridge.alert = function(msg, callback) {
     
-    window.bridge.invoke("me.octree.bridge.alert", "alert:confirm:", callback, msg)
+    window.bridge.invoke("me.octree.bridge.alert", "alert:confirm:", msg, callback)
 }

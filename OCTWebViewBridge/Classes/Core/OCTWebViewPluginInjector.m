@@ -261,10 +261,8 @@ typedef NS_ENUM(NSUInteger, OCTMessageArgType) {
             
             [invocation setArgument:&val atIndex:index];
         }
-        [invocation setArgument:(void *)&obj atIndex:index];
         index++;
     }
-    
     [invocation invoke];
 }
 
