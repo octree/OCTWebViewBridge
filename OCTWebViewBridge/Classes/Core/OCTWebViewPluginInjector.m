@@ -252,7 +252,7 @@ typedef NS_ENUM(NSUInteger, OCTMessageArgType) {
             NSString *identifier = [[self class] generateCallbackIdentifier];
             OCTResponseCallback callback = ^void(id param) {
                 __strong __typeof(wself) sself = wself;
-                [sself invokeCallbackWithId:[val integerValue] param:param];
+                [sself invokeCallbackWithId:[val integerValue] params:param];
                 [self.callbackMap removeObjectForKey:identifier];
             };
             self.callbackMap[identifier] = callback;
@@ -267,16 +267,14 @@ typedef NS_ENUM(NSUInteger, OCTMessageArgType) {
 }
 
 
-- (void)invokeCallbackWithId:(NSInteger)callbackId param:(id)param {
+- (void)invokeCallbackWithId:(NSInteger)callbackId params:(NSArray *)params {
     
-    NSString *json = @"null";
-    if (param) {
-        NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:@[ param ] options:0 error:NULL];
-        if (!error) {
-            json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            json = [json substringWithRange:NSMakeRange(1, json.length - 2)];
-        }
+    NSString *json = @"";
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:params options:0 error:NULL];
+    if (!error) {
+        json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        json = [json substringWithRange:NSMakeRange(1, json.length - 2)];
     }
     
     NSString *code = [NSString stringWithFormat:@"window.bridge.callbackDispatcher.invoke(%zd, %@)", callbackId, json];
