@@ -28,9 +28,9 @@
     UIAlertController *avc = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
     [avc addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        callback(@{
+        callback(@[@{
                    @"hello": @"world"
-                   });
+                   }]);
     }]];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:avc animated:YES completion:nil];
 }

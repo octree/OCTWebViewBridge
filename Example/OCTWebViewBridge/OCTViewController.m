@@ -115,7 +115,7 @@
         }];
         
         [[OCTWebViewPluginInjector injectorForWebView:_webView] injectPluginWithFunctionPath:@"octree.util.log" handlerWithResponseBlock:^(NSDictionary *data, OCTResponseCallback responseCallback) {
-            responseCallback(@(1));
+            responseCallback(@[@"invoke by native, hello world"]);
         }];
     }
     return _webView;

@@ -57,7 +57,7 @@
 
 - (void)fetchCSSJSON:(OCTResponseCallback)callback {
 
-    callback(self.cssMap);
+    callback(@[self.cssMap]);
 }
 
 
