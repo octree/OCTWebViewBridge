@@ -14,7 +14,7 @@ window.native.foo(param1, param2, (obj) => {
 ## Installation
 
 ```shell
-pod OCTWebViewBridge
+pod 'OCTWebViewBridge'
 ```
 
 
