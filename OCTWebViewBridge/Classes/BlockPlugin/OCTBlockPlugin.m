@@ -17,9 +17,9 @@ NSString *OCTFunctionDefineCode(NSString *path, NSString *identifier, BOOL needC
     
     
     if (needCallback) {
-        return [NSString stringWithFormat:@"if(%@==null) { %@ = function(param, callback) { window.bridge.invoke('%@', 'invoke:callback:', callback, param)} }", path, path, identifier];
+        return [NSString stringWithFormat:@"if(%@==null) { %@ = function(param, callback) { window.bridge.invoke('%@', 'invoke:callback:', param, callback)} }", path, path, identifier];
     } else {
-        return [NSString stringWithFormat:@"if(%@==null) { %@ = function(param) { window.bridge.invoke('%@', 'invoke:', null, param)} }", path, path, identifier];
+        return [NSString stringWithFormat:@"if(%@==null) { %@ = function(param) { window.bridge.invoke('%@', 'invoke:', param)} }", path, path, identifier];
     }
 }
 
