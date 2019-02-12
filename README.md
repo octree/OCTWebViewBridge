@@ -1,3 +1,6 @@
+![img](https://img.shields.io/github/license/octree/OCTWebViewBridge.svg)
+![img](https://img.shields.io/cocoapods/v/OCTWebViewBridge.svg?style=flat)
+
 ## OCTWebViewBridge
 
 起源于在老东家工作的时候的库 [YJWebView](https://github.com/TinydustDevelopers/YJWebView)
